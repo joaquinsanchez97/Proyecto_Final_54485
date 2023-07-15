@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Crear Categoría{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<h1>Agregar Categoría</h1>
+<br/><br/>
+
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Agregar Categoría</button>
+</div>
+
+{% else %}
+
+Por favor, iniciar sesión para agregar un blog post.
+
+{% endif %}
+{% endblock %}

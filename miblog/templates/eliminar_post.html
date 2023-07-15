@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Eliminar Post{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+
+    {% if user.id == post.author.id %}
+    
+        <h1>Eliminar Blog Post</h1>
+        <br/><br/>
+        <h3> Eliminar: {{ post.title }}</h3>
+
+        <br/>
+        <div class="form-group">
+            <form method="POST">
+                {% csrf_token %}
+                <strong>¿Estás seguro?</strong><br/><br/>
+                <button class="btn btn-danger">Eliminar Post</button>
+        </div>
+
+    {% else %}
+
+        Por favor, iniciar sesión para eliminar un blog post.
+
+    {% endif %}
+
+{% else %}
+
+Por favor, iniciar sesión para eliminar un blog post.
+
+{% endif %}
+
+{% endblock %}

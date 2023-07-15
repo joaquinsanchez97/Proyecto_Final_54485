@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Cambiar contraseña{% endblock %}
+{% block content %}
+
+<h1>Cambiar contraseña</h1>
+<br/><br/>
+
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Cambiar contraseña</button>
+</div>
+
+
+<ul>
+    
+    <li>Su contraseña no puede asemejarse tanto a su otra información personal.</li>
+
+    <li>Su contraseña debe contener al menos 8 caracteres.</li>
+
+    <li>Su contraseña no puede ser una clave utilizada comúnmente.</li>
+
+    <li>Su contraseña no puede ser completamente numérica.</li>
+
+</ul>
+
+{% endblock %}

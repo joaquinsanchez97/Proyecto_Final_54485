@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Editar Post{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+    
+    {% if user.id == post.author.id %}
+
+        <h1>Editar Blog Post</h1>
+        <br/><br/>
+
+        <div class="form-group">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.media }}
+                {{ form.as_p }}
+                <button class="btn btn-secondary">Actualizar</button>
+        </div>
+    
+    {% else %}
+
+    Por favor, iniciar sesión para editar un blog post.
+    
+    {% endif %}
+
+{% else %}
+
+Por favor, iniciar sesión para editar un blog post.
+
+{% endif %}
+
+{% endblock %}
