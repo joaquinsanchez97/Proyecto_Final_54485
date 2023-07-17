@@ -37,3 +37,6 @@ class PasswordChangingForm(PasswordChangeForm):
     class Meta:
         model = User
         fields = ('new_password1', 'new_password2', 'old_password')
+
+class AvatarForm(forms.Form):
+    avatar = forms.ImageField()

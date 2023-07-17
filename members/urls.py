@@ -9,5 +9,7 @@ urlpatterns = [
     #path('<int:pk>/password/', auth_views.PasswordChangeView.as_view(template_name="registration/cambiar_contraseña.html")),
     path('<int:pk>/password/', PasswordsChangeView.as_view(template_name="registration/cambiar_contraseña.html")),
     path('password_success', views.password_success, name="password_success"),
+    path('editar_perfil/editar-avatar', editarAvatar , name="editar-avatar"),
+
 
 ]
